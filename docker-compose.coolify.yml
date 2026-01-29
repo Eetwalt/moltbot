@@ -5,6 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: moltbot
     restart: unless-stopped
+    command: moltbot gateway
     environment:
       - NODE_ENV=production
       - CLAWDBOT_GATEWAY_TOKEN=${CLAWDBOT_GATEWAY_TOKEN}
