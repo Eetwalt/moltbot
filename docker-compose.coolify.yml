@@ -1,0 +1,18 @@
+services:
+  moltbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: moltbot
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - CLAWDBOT_GATEWAY_TOKEN=${CLAWDBOT_GATEWAY_TOKEN}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    volumes:
+      - moltbot_data:/root/.clawdbot
+      - moltbot_workspace:/root/clawd
+
+volumes:
+  moltbot_data:
+  moltbot_workspace:
