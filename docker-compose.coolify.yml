@@ -6,8 +6,7 @@ services:
     container_name: moltbot
     restart: unless-stopped
     user: root
-    command: >-
-      /bin/sh -c "echo '{\"gateway\":{\"trustedProxies\":[\"loopback\",\"linklocal\",\"uniquelocal\",\"10.0.0.0/8\",\"172.16.0.0/12\",\"192.168.0.0/16\"]}}' > /home/node/.moltbot/moltbot.json && node dist/index.js gateway --bind lan --port 18789 --allow-unconfigured"
+    command: node dist/index.js gateway --bind lan --port 18789 --allow-unconfigured
     environment:
       - NODE_ENV=production
       - CLAWDBOT_GATEWAY_TOKEN=${CLAWDBOT_GATEWAY_TOKEN}
