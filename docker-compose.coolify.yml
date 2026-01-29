@@ -5,6 +5,8 @@ services:
       dockerfile: Dockerfile
     container_name: moltbot
     restart: unless-stopped
+    expose:
+      - "18789"
     command: node dist/index.js gateway --bind lan --port 18789 --allow-unconfigured
     environment:
       - NODE_ENV=production
