@@ -11,10 +11,9 @@ services:
       - NODE_ENV=production
       - CLAWDBOT_GATEWAY_TOKEN=${CLAWDBOT_GATEWAY_TOKEN}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - HOME=/home/node
     volumes:
-      - moltbot_data_v2:/home/node/.moltbot
-      - moltbot_workspace_v2:/home/node/clawd
+      - moltbot_data_v2:/root/.moltbot
+      - moltbot_workspace_v2:/root/clawd
 
 volumes:
   moltbot_data_v2:
