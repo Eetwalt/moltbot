@@ -12,9 +12,9 @@ services:
       - CLAWDBOT_GATEWAY_TOKEN=${CLAWDBOT_GATEWAY_TOKEN}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
     volumes:
-      - moltbot_data:/home/node/.clawdbot
-      - moltbot_workspace:/home/node/clawd
+      - moltbot_data_v2:/home/node/.moltbot
+      - moltbot_workspace_v2:/home/node/clawd
 
 volumes:
-  moltbot_data:
-  moltbot_workspace:
+  moltbot_data_v2:
+  moltbot_workspace_v2:
