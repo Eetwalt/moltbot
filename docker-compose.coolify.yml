@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: moltbot
     restart: unless-stopped
-    command: node dist/index.js gateway --bind 0.0.0.0 --port 18789 --allow-unconfigured
+    command: node dist/index.js gateway --bind lan --port 18789 --allow-unconfigured
     environment:
       - NODE_ENV=production
       - CLAWDBOT_GATEWAY_TOKEN=${CLAWDBOT_GATEWAY_TOKEN}
