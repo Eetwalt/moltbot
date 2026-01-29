@@ -5,16 +5,15 @@ services:
       dockerfile: Dockerfile
     container_name: moltbot
     restart: unless-stopped
-    expose:
-      - "18789"
-    command: node dist/index.js gateway --bind lan --port 18789 --allow-unconfigured
+    command: >-
+      /bin/sh -c "node dist/index.js config set gateway.trustedProxies '[\"loopback\",\"linklocal\",\"uniquelocal\",\"10.0.0.0/8\",\"172.16.0.0/12\",\"192.168.0.0/16\"]' && node dist/index.js gateway --bind lan --port 18789 --allow-unconfigured"
     environment:
       - NODE_ENV=production
       - CLAWDBOT_GATEWAY_TOKEN=${CLAWDBOT_GATEWAY_TOKEN}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
     volumes:
-      - moltbot_data:/root/.clawdbot
-      - moltbot_workspace:/root/clawd
+      - moltbot_data:/home/node/.clawdbot
+      - moltbot_workspace:/home/node/clawd
 
 volumes:
   moltbot_data:
